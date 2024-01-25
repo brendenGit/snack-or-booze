@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Home from "./Home";
+import Home from "./components/Home/Home"
 import SnackOrBoozeApi from "./Api";
-import NavBar from "./NavBar";
+import NavBar from "./components/common/NavBar/NavBar"
 import { Route, Switch } from "react-router-dom";
-import Menu from "./FoodMenu";
-import Snack from "./FoodItem";
+import Menu from "./components/common/Menu/Menu";
+import MenuItem from "./components/common/MenuItem/MenuItem";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [snacks, setSnacks] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
     async function getSnacks() {
@@ -19,6 +21,15 @@ function App() {
       setIsLoading(false);
     }
     getSnacks();
+  }, []);
+
+  useEffect(() => {
+    async function getDrinks() {
+      let drinks = await SnackOrBoozeApi.getDrinks();
+      setDrinks(drinks);
+      setIsLoading(false);
+    }
+    getDrinks();
   }, []);
 
   if (isLoading) {
@@ -32,13 +43,19 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              <Home snacks={snacks} />
+              <Home snacks={snacks.length} drinks={drinks.length} />
             </Route>
             <Route exact path="/snacks">
-              <Menu snacks={snacks} title="Snacks" />
+              <Menu items={{ snacks: snacks }} title="Snacks" />
             </Route>
             <Route path="/snacks/:id">
-              <Snack items={snacks} cantFind="/snacks" />
+              <MenuItem items={snacks} cantFind="/snacks" />
+            </Route>
+            <Route exact path="/drinks">
+              <Menu items={{ drinks: drinks }} title="Drinks" />
+            </Route>
+            <Route path="/drinks/:id">
+              <MenuItem items={drinks} cantFind="/drinks" />
             </Route>
             <Route>
               <p>Hmmm. I can't seem to find what you want.</p>

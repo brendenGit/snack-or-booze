@@ -1,15 +1,21 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-function Home() {
+function Home({ snacks, drinks }) {
   return (
     <section className="col-md-8">
       <Card>
         <CardBody className="text-center">
           <CardTitle>
-            <h3 className="font-weight-bold">
+            <p className="font-weight-bolder">
               Welcome to Silicon Valley's premier dive cafe!
-            </h3>
+            </p>
+            <p className="font-weight-lighter">
+              Currently serving {snacks} snacks!
+            </p>
+            <p className="font-weight-lighter">
+              Currently serving {drinks} drinks!
+            </p>
           </CardTitle>
         </CardBody>
       </Card>
