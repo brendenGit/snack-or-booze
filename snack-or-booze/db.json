@@ -27,6 +27,13 @@
       "description": "Crisp!",
       "recipe": "Open can.",
       "serve": "Immediately."
+    },
+    {
+      "id": "old-fashioned",
+      "name": "Old Fashioned",
+      "description": "a classic whiskey cocktail",
+      "recipe": "whiskey, sugar, bitters",
+      "serve": "on one large rock with a lemon twist"
     }
   ],
   "snacks": [
@@ -50,6 +57,13 @@
       "description": "Tart and delicious.",
       "recipe": "Mix arugula, toasted walnuts, and thinly-sliced Parmesan cheese. Dress with lemon and olive oil.",
       "serve": "Place on tiny, precious little plates."
+    },
+    {
+      "id": "not-hummus",
+      "name": "not Hummus",
+      "description": "lol",
+      "recipe": "lol",
+      "serve": "lol"
     }
   ]
 }

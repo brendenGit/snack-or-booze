@@ -21,6 +21,11 @@ class SnackOrBoozeApi {
     return result.data;
   }
 
+  static async addNewItemToDB(data, type) {
+    const result = await axios.post(`${BASE_API_URL}/${type}`, data);
+    return result.data;
+  }
+
 }
 
 export default SnackOrBoozeApi;

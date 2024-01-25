@@ -30,6 +30,19 @@ function Menu({ items }) {
               </Link>
             ))}
           </ListGroup>
+
+        </CardBody>
+      </Card>
+      <Card>
+        <CardBody>
+          <Link to={`/${type.toLowerCase()}/new`}>
+            <CardTitle className="font-weight-bold text-center">
+              Add a new {type.slice(0, -1).toLowerCase()}
+            </CardTitle>
+          </Link>
+          <CardText>
+            Tell us what you want and we'll make it!
+          </CardText>
         </CardBody>
       </Card>
     </section>
