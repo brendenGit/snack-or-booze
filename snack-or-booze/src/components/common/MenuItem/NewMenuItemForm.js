@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useLocation, useHistory } from 'react-router-dom';
+import "./NewMenuItemForm.css";
 import {
     Card,
     CardBody,
@@ -45,18 +46,21 @@ function NewMenuItemForm({ addNewItem }) {
             <Card>
                 <CardBody>
                     <CardTitle className="font-weight-bold text-center">
-                        Add a New Menu Item
+                        {`Add a New ${type[0].toUpperCase() + type.slice(1, -1)}`}
                     </CardTitle>
                     <CardText>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor="name">
                                 Name:
-                                <input
+                                <textarea
+                                    rows={2}
+                                    cols={40}
                                     type="text"
                                     name="name"
                                     id="name"
                                     value={formData.name}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label htmlFor="description">
@@ -69,6 +73,7 @@ function NewMenuItemForm({ addNewItem }) {
                                     id="description"
                                     value={formData.description}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label htmlFor="recipe">
@@ -80,6 +85,7 @@ function NewMenuItemForm({ addNewItem }) {
                                     id="recipe"
                                     value={formData.recipe}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <label htmlFor="serve">
@@ -92,6 +98,7 @@ function NewMenuItemForm({ addNewItem }) {
                                     id="serve"
                                     value={formData.serve}
                                     onChange={handleChange}
+                                    required
                                 />
                             </label>
                             <button type="submit">Submit</button>

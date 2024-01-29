@@ -9,6 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import Menu from "./components/common/Menu/Menu";
 import MenuItem from "./components/common/MenuItem/MenuItem";
 import NewMenuItemForm from "./components/common/MenuItem/NewMenuItemForm";
+import NotFound from "./components/common/NotFound/NotFound";
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
   }
 
   if (isLoading) {
-    return <p>Loading &hellip;</p>;
+    return <p>Loading &hel1p;</p>;
   }
 
   return (
@@ -67,7 +68,7 @@ function App() {
               <Menu items={{ snacks: snacks }} title="Snacks" />
             </Route>
             <Route path="/snacks/:id">
-              <MenuItem items={snacks} cantFind="/snacks" />
+              <MenuItem items={{snacks: snacks}} cantFind="/snacks" />
             </Route>
             <Route exact path="/drinks/new">
               <NewMenuItemForm addNewItem={addNewItem} />
@@ -76,11 +77,10 @@ function App() {
               <Menu items={{ drinks: drinks }} title="Drinks" />
             </Route>
             <Route path="/drinks/:id">
-              <MenuItem items={drinks} cantFind="/drinks" />
+              <MenuItem items={{drinks: drinks}} cantFind="/drinks" />
             </Route>
-
             <Route>
-              <p>Hmmm. I can't seem to find what you want.</p>
+              <NotFound exact path="/not-found"/>
             </Route>
           </Switch>
         </main>

@@ -64,6 +64,13 @@
       "description": "lol",
       "recipe": "lol",
       "serve": "lol"
+    },
+    {
+      "id": "milk-bone",
+      "name": "Milk Bone",
+      "description": "A tasty treat for the dogs",
+      "recipe": "Idk",
+      "serve": "In hand"
     }
   ]
 }
